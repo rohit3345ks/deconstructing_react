@@ -23,10 +23,10 @@ const render = (reactElementOrStringOrNumber, container) => {
     return;
   }
   if (reactElementOrStringOrNumber.props) {
-    Object.keys(reactElementOrStringOrNumber)
+    Object.keys(reactElementOrStringOrNumber.props)
       .filter((propsKey) => propsKey !== "children")
       .forEach(
-        (attr) => (actualDOMElement[attr] = reactElementOrStringOrNumber[attr])
+        (attr) => (actualDOMElement[attr] = reactElementOrStringOrNumber.props[attr])
       );
   }
   if (reactElementOrStringOrNumber.props.children) {
@@ -49,6 +49,10 @@ const App = () => (
       quasi pariatur odio adipisci vel fuga corporis. Soluta eligendi laborum
       enim?
     </p>
+    <form>
+        <input type='text' placeholder="test" />
+        <input type='submit' value='Name Likh' />
+    </form>
   </div>
 );
 
